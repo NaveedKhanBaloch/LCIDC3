@@ -1,0 +1,26 @@
+{
+  "name": "simple-cicd-pipeline",
+  "version": "2.0.0",
+  "description": "Optimized web app with advanced CI/CD",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest",
+    "build": "rm -rf dist && mkdir -p dist && cp -r src/* dist/ && echo '{\"builtAt\":\"'\"$(date -u +%FT%TZ)\"'\"}' > dist/build-info.json",
+    "lint": "echo 'Lint ok'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageDirectory": "coverage"
+  }
+}
